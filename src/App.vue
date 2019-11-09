@@ -1,28 +1,39 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    App.vueだよ
+    <App>
+      <Add />
+      <Delete />
+      <Search />
+      <Update />
+    </App>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Add from "./components/Add";
+import Delete from "./components/Delete";
+import Search from "./components/Search";
+import Update from "./components/Update";
 export default {
-  name: 'app',
+  // 読み込むの
   components: {
-    HelloWorld
+    Add,
+    Delete,
+    Search,
+    Update
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: chocolate;
   margin-top: 60px;
+  background-color: antiquewhite;
 }
 </style>
