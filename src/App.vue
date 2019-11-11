@@ -1,27 +1,27 @@
 <template>
   <div id="app">
     App.vueだよ
-    <App>
-      <Add />
-      <Delete />
-      <Search />
-      <Update />
-    </App>
+    <Search />
+    <List />
+    <ListDetail />
+    <Add />
   </div>
 </template>
 
 <script>
 import Add from "./components/Add";
-import Delete from "./components/Delete";
+import List from "./components/List";
 import Search from "./components/Search";
-import Update from "./components/Update";
+import ListDetail from "./components/ListDetail";
+
+// 読み込み
 export default {
-  // 読み込むの
+  name: "importAll",
   components: {
     Add,
-    Delete,
+    List,
     Search,
-    Update
+    ListDetail
   }
 };
 </script>

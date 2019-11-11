@@ -1,5 +1,5 @@
 <template>
   <div>
-    <p>Delet.vueだよ</p>
+    <p>ListDetail.vueだよ</p>
   </div>
 </template>
