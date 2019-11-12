@@ -2,8 +2,8 @@
   <div id="list">
     <li v-for="todo in todolist" :key="todo">
       <label>
-        <input type="checkbox" v-model="todo.isChecked" />
-        {{ todo.title }}
+        <input type="checkbox" v-model="todoList" />
+        {{todo.value}}
       </label>
     </li>
   </div>
@@ -11,13 +11,12 @@
 
 <script>
 export default {
-  name: "todoTable",
   data: function() {
     return {
       todolist: [
-        { title: "イチ", id: 1 },
-        { title: "ニ", id: 2 },
-        { title: "サン", id: 3 }
+        { id: 1, value: "その１" },
+        { id: 1, value: "その２" },
+        { id: 1, value: "その３" }
       ]
     };
   }

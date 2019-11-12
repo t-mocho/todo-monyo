@@ -2,9 +2,9 @@
   <div id="app">
     App.vueだよ
     <Search />
-    <List />
+    <List v-on: todoList="appList" />
     <ListDetail />
-    <Add />
+    <Add v-on: addTask="appAdd" />
   </div>
 </template>
 
@@ -22,6 +22,20 @@ export default {
     List,
     Search,
     ListDetail
+  },
+
+  methods: {
+    /**
+     * ListとAddを関連づけさせたい
+     * @param addText フォームの入力値
+     */
+    appAdd: function(addText) {
+      this.todoList.push({
+        text: addText,
+        done: false,
+        id: 4
+      });
+    }
   }
 };
 </script>
