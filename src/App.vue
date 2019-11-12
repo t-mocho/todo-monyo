@@ -2,7 +2,7 @@
   <div id="app">
     App.vueだよ
     <Search />
-    <List v-on: todoList="appList" />
+    <List v-on: addTask="appList" />
     <ListDetail />
     <Add v-on: addTask="appAdd" />
   </div>
@@ -30,10 +30,9 @@ export default {
      * @param addText フォームの入力値
      */
     appAdd: function(addText) {
-      this.todoList.push({
-        text: addText,
-        done: false,
-        id: 4
+      this.todoList.push()({
+        id: 4,
+        value: addText
       });
     }
   }

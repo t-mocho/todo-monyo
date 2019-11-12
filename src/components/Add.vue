@@ -17,10 +17,11 @@ export default {
   methods: {
     /**
      * methods: addNew
-     * 子 → 親
+     * 要素を子→親へ
      */
     addNew: function() {
       this.$emit("addTask", this.addText); // this.$emit('(関数名)', (引数))
+      this.addText = "";
     }
   }
 };
