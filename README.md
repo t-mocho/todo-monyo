@@ -1,5 +1,16 @@
 # todo-monyo memo
 
+### 11/11 v-model とか components とか
+
+- springboot と感覚似てる？ MVC （model）が出てきた
+  参考：https://qiita.com/a-pompom/items/6c27d25bb44e0f754116
+- どのサンプルも``export default`でスターとして name つけてた
+- コンポーネント勉強
+  - 子 → 親は emit
+    参考：https://qiita.com/fukuman/items/b0bc84081ad0d2bc522a
+  - 親 → 子は props
+    参考：https://qiita.com/fukuman/items/b7e15a8dab4ebb870952
+
 ### 11/11 v-for が使えたのとルールとか
 
 - ベースが .html と .vue で javascript の書き方変わるよ
