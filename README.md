@@ -2,14 +2,16 @@
 
 ### 11/11 v-model とか components とか
 
-- springboot と感覚似てる？ MVC （model）が出てきた
+- springboot と感覚似てる？ MVC （model）が出てきた ← 似てるけど違うらしい
   参考：https://qiita.com/a-pompom/items/6c27d25bb44e0f754116
 - どのサンプルも``export default`でスターとして name つけてた
-- コンポーネント勉強
-  - 子 → 親は emit
+- コンポーネント勉強しよう
+  - 子 → 親は emit をつかう
     参考：https://qiita.com/fukuman/items/b0bc84081ad0d2bc522a
-  - 親 → 子は props
-    参考：https://qiita.com/fukuman/items/b7e15a8dab4ebb870952
+  - 親 → 子は props をつかう
+    参考：https://qiita.com/fukuman/items/b7e15a8dab4ebb870952-
+  - Todo 追加だけの意味だと Add→List→App の順番
+    App には全機能 import されてるけど List と Add はお互い import されていないから
 
 ### 11/11 v-for が使えたのとルールとか
 
