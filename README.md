@@ -1,6 +1,6 @@
 # todo-monyo memo
 
-### 11/12 component オオオ
+### 11/13 component オオオ
 
 - Add→App に emit する方法をりかい（alert で確認）
 - push とか unshift の違いってなーにが以下サイトに載ってたよ<br>
@@ -9,7 +9,7 @@
   なお`@app-add="appAdd"`で動いたもよう<br>
   **まさかの空白問題というオチだったよ！！** → 正しくは `v-on:app-add="appAdd"`
 
-### 11/11 v-model とか components とか
+### 11/12 v-model とか components とか
 
 - springboot と感覚似てる？ MVC （model）が出てきた ← 似てるけど違うらしい<br>
   参考：https://qiita.com/a-pompom/items/6c27d25bb44e0f754116
