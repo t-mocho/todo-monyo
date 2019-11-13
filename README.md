@@ -3,7 +3,7 @@
 ### 11/12 component オオオ
 
 - Add→App に emit する方法をりかい（alert で確認）
-- push とか unshift の違いってなーにが以下サイトに載ってた<br>  
+- push とか unshift の違いってなーにが以下サイトに載ってたよ<br>
   参考：https://maeharin.hatenablog.com/entry/20130122/unshift_shift_pop_push
 - App.vue で`v-on: app-add="appAdd"`が反応なかったなんでだろう<br>
   なお`@app-add="appAdd"`で動いたもよう<br>
