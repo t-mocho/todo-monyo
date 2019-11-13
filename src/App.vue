@@ -1,10 +1,9 @@
 <template>
   <div id="app">
-    App.vueだよ
     <Search />
-    <List v-on: addTask="appList" />
+    <List v-bind:passList="appAdd" />
     <ListDetail />
-    <Add v-on: addTask="appAdd" />
+    <Add v-on:passAdd="appAdd" />
   </div>
 </template>
 
@@ -14,7 +13,7 @@ import List from "./components/List";
 import Search from "./components/Search";
 import ListDetail from "./components/ListDetail";
 
-// 読み込み
+// コンポーネント
 export default {
   name: "importAll",
   components: {
@@ -23,18 +22,12 @@ export default {
     Search,
     ListDetail
   },
-
-  methods: {
-    /**
-     * ListとAddを関連づけさせたい
-     * @param addText フォームの入力値
-     */
-    appAdd: function(addText) {
-      this.todoList.push()({
-        id: 4,
-        value: addText
-      });
-    }
+  data() {
+    return {
+      appAdd: function(addText) {
+        Set.value = addText;
+      }
+    };
   }
 };
 </script>

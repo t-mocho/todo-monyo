@@ -1,8 +1,9 @@
 <template>
   <div>
-    <!-- テスト -->
+    <!-- v-model 入力文字の引数 -->
     <input type="text" v-model="addText" />
-    <button @click="addTask">追加</button>
+    <!-- @click メソッド名 -->
+    <button @click="addNew">追加</button>
   </div>
 </template>
 
@@ -17,11 +18,11 @@ export default {
   methods: {
     /**
      * methods: addNew
-     * 要素を子→親へ
+     * 要素をAdd→Appへ
      */
     addNew: function() {
-      this.$emit("addTask", this.addText); // this.$emit('(関数名)', (引数))
-      this.addText = "";
+      this.$emit("passAdd", this.addText); // this.$emit('(関数名)', (引数))
+      this.addText = ""; // ボタン押下後にフォームのリセット
     }
   }
 };
