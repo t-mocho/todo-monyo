@@ -1,7 +1,7 @@
 <template>
   <div id="list">
     <!-- v-bind:props名="メソッド名" -->
-    <li v-for="todo in todolist" :key="todo" v-bind:="addList">
+    <li v-for="todo in todolist" :key="todo">
       <input type="checkbox" />
       <label>{{todo.value}}</label>
     </li>
@@ -11,7 +11,6 @@
 <script>
 export default {
   name: "List",
-  props: ["passList"],
 
   data: function() {
     return {

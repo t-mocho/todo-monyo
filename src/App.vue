@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Search />
-    <List v-bind:passList="appAdd" />
+    <List />
     <ListDetail />
     <Add v-on:passAdd="appAdd" />
   </div>

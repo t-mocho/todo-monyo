@@ -1,5 +1,9 @@
 # todo-monyo memo
 
+### 11/17 macbookに設定追加してるよ
+- macbookに環境構築中
+- sorcetreeとgitとnode.jsと拡張機能とか諸々完了
+
 ### 11/13 component オオオ
 
 - Add→App に emit する方法をりかい（alert で確認）
