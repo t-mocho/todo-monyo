@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Search />
-    <List />
+    <List :todolist="todolist" />
     <ListDetail />
     <Add v-on:passAdd="appAdd" />
   </div>
@@ -24,12 +24,21 @@ export default {
   },
   data() {
     return {
+        todolist: [
+          { id: 1, value: "その１"},
+          { id: 2, value: "その２"},
+          { id: 3, value: "その３"}
+        ]
+    }
+  },
+    
+    methods: {
       appAdd: function(addText) {
-        Set.value = addText;
+        const add = {id: 4, value: addText}
+        this.todolist.push(add);
       }
-    };
-  }
-};
+    }
+}
 </script>
 
 <style>

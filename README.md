@@ -1,6 +1,18 @@
 # todo-monyo memo
 
-### 11/17 macbookに設定追加してるよ
+
+## 11/17 リストに追加
+- 値の話
+  - let:同じメソッド内のみで
+  - var:全部で変更できる値
+  - const:固定値
+- リストに追加した
+  - emitで渡してv-onで受け取ってさらにv-bindでもらう
+- 次の課題
+  - 「id:4」固定になってるのをforするよ
+  - searchで絞り込みするよ
+
+### 11/16 macbookに設定追加してるよ
 - macbookに環境構築中
 - sorcetreeとgitとnode.jsと拡張機能とか諸々完了
 
