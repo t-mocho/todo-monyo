@@ -4,6 +4,7 @@
 - id:0 から1,2,3と++していく
   - `:key="todo.idPlus"`のkey変更
   - `var idPlus = this.id++`でidをidPlusにしたらいけた（for文いらないんだね）
+- constに追加リスト作ってたけどvarでid++した変数をconstのs処理に突っ込んでもいけることを知った
 
 ### 11/17 リストに追加
 - 値の話
