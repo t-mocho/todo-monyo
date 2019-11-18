@@ -1,5 +1,9 @@
 # todo-monyo memo
 
+### 11/18 idをプラスする
+- id:0 から1,2,3と++していく
+  - `:key="todo.idPlus"`のkey変更
+  - `var idPlus = this.id++`でidをidPlusにしたらいけた（for文いらないんだね）
 
 ### 11/17 リストに追加
 - 値の話
