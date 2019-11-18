@@ -22,19 +22,19 @@ export default {
     Search,
     ListDetail
   },
+  
   data() {
     return {
         todolist: [
-          { id: 1, value: "その１"},
-          { id: 2, value: "その２"},
-          { id: 3, value: "その３"}
+          { id: 0, value: "その１"},
         ]
     }
   },
     
     methods: {
       appAdd: function(addText) {
-        const add = {id: 4, value: addText}
+        var idPlus = this.id++
+        const add = {id: idPlus, value: addText}
         this.todolist.push(add);
       }
     }
