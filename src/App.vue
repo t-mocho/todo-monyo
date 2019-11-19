@@ -23,6 +23,7 @@ export default {
     ListDetail
   },
   
+  // todoリスト
   data() {
     return {
         todolist: [
@@ -31,10 +32,15 @@ export default {
     }
   },
     
+    // task追加処理
     methods: {
+
+      idAdd: function(){
+        this.id++
+      },
+
       appAdd: function(addText) {
-        var idPlus = this.id++
-        const add = {id: idPlus, value: addText}
+        const add = {id: this.idAdd, value: addText}
         this.todolist.push(add);
       }
     }

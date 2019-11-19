@@ -1,7 +1,7 @@
 <template>
   <div id="list">
     <!-- v-bind:props名="メソッド名" -->
-    <li v-for="todo in todolist" :key="todo.idPlus">
+    <li v-for="todo in todolist" :key="todo.id">
       <input type="checkbox" />
       <label>{{todo.value}}</label>
     </li>
@@ -11,6 +11,7 @@
 <script>
 export default {
   name: "List",
+  // appから受け取り
 props: ["todolist"]
 };
 </script>
