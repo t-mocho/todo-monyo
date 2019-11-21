@@ -1,5 +1,13 @@
 # todo-monyo memo
 
+### 11/21 エラーがきえた
+- 以下コードでエラーをはかなくなったけど、あしたみよう
+    ```
+        var i = 0;
+        let plus = i.length;
+        const add = {id: plus, value: addText}
+    ```
+
 ### 11/19 idをプラスする←間違えてた
 - `this.id++`用のmethod作ってもダメだったorz
 - 18日分の解釈間違えていたyo

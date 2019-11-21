@@ -26,21 +26,16 @@ export default {
   // todoリスト
   data() {
     return {
-        todolist: [
-          { id: 0, value: "その１"},
-        ]
+        todolist: []
     }
   },
     
     // task追加処理
     methods: {
-
-      idAdd: function(){
-        this.id++
-      },
-
       appAdd: function(addText) {
-        const add = {id: this.idAdd, value: addText}
+        var i = 0;
+        let plus = i.length;
+        const add = {id: plus, value: addText}
         this.todolist.push(add);
       }
     }
