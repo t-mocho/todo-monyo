@@ -1,8 +1,18 @@
 # todo-monyo memo
 
 ### 11/23 lengthりかいりかい
+- length使ってできたよ！！
+    ```
+    appAdd: function(addText) {
+        var v = Object.keys( this.todolist );
+        const add = {id: v.length, value: addText}
+        this.todolist.push(add);
+    }
+    ```
+    `<label>{{todo.id}} : {{todo.value}}</label>`
+
 - lengthは配列[]の要素を数えてくれるよ
-    - 配列の中のオブジェクト{}の要素だったから違った<br>
+    - わしの課題は配列の中のオブジェクト{}の要素だったから違った<br>
     参考：https://www.sejuku.net/blog/22120#
 
 ### 11/21 エラーがきえた

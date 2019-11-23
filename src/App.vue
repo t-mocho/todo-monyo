@@ -37,7 +37,8 @@ export default {
     // task追加処理
     methods: {
       appAdd: function(addText) {
-        const add = {id: this.id, value: addText}
+        var v = Object.keys( this.todolist );
+        const add = {id: v.length, value: addText}
         this.todolist.push(add);
         }
       }

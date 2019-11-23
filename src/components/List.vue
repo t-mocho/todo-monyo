@@ -1,9 +1,9 @@
 <template>
   <div id="list">
     <!-- v-bind:props名="メソッド名" -->
-    <li v-for="(todo, index) in todolist" :key="todo.id">
+    <li v-for="todo in todolist" :key="todo.id">
       <input type="checkbox" />
-      <label>{{index++}} : {{todo.value}}</label>
+      <label>{{todo.id}} : {{todo.value}}</label>
     </li>
   </div>
 </template>
