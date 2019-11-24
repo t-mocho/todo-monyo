@@ -1,8 +1,9 @@
 <template>
   <div id="app">
     <Search />
-    <List :todolist="todolist" />
-    <ListDetail />
+    <List
+    :todolist="todolist"
+    v-on:passCheck="appDel" />
     <Add v-on:passAdd="appAdd" />
   </div>
 </template>
@@ -11,7 +12,6 @@
 import Add from "./components/Add";
 import List from "./components/List";
 import Search from "./components/Search";
-import ListDetail from "./components/ListDetail";
 
 // コンポーネント
 export default {
@@ -19,30 +19,39 @@ export default {
   components: {
     Add,
     List,
-    Search,
-    ListDetail
+    Search
   },
   
   // todoリスト
   data() {
     return {
         todolist: [
-          {id: 0, value: "その１"},
-          {id: 1, value: "その２"},
-          {id: 2, value: "その３"},
+          {id: 0, value: "たぴ０", del: false},
+          {id: 1, value: "たぴ１", del: true},
+          {id: 2, value: "たぴ２", del: false},
           ]
     }
   },
     
-    // task追加処理
     methods: {
+      // タスク追加処理
       appAdd: function(addText) {
+        // keysで配列オブジェクトがなんこあるかわかるよ
         var v = Object.keys( this.todolist );
-        const add = {id: v.length, value: addText}
+        // v.lengthでidの数見て引数の入力値をpushする
+        const add = {id: v.length, value: addText, del: false}
         this.todolist.push(add);
-        }
+        },
+      
+      // タスク削除処理
+      appDel: function() {
+        // falseのやつだけ
+        var todoDel = this.todolist.filter(todo => todo.del === false);
+        // todolistに入れる
+        this.todolist = todoDel
       }
     }
+}
 
 </script>
 

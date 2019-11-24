@@ -1,5 +1,14 @@
 # todo-monyo memo
 
+### 11/24
+- `{id: 0, value: "たぴ０", del: false},`<br>
+    チェックボックスの項目が増えたからdel:ができたよ
+    - チェックボックスはfalseおあtrueだよ
+
+- `filter(条件);` まなんだ<br>
+    参考：https://www.w3schools.com/jsref/jsref_filter.asp
+- `this.$emit('(関数名)'` emitは引数なしでも可
+
 ### 11/23 lengthりかいりかい
 - length使ってできたよ！！
     ```
