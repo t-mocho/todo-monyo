@@ -1,6 +1,19 @@
 # todo-monyo memo
 
-### 11/24
+### 11/27 searchで上書きしない方法
+- filterの結果をtodolistに上書きしてたので変更
+    - `computed` を使うと値が更新されたときだけ動くよ
+        - 引数はつかえない
+        - 使う際はdata()に宣言するとか工夫が必要
+        - data内はjavaでいうとこの`private Hoge hoge;`みたいな宣言場所
+    - `methods`は再描画が起きると常に実行するよ
+- Listのv-forに記載するものはSearch側のtodolistでOK
+    - Search側の処理でtodolist呼び出し→<br>
+    ifで文字が入力された場合のみ検索するように設定
+- `emit`が２つ記載された場合、後から呼ばれたほうがemit優先される
+    - `emit`でhoge,hogeで渡す場合は第一引数、第二引数になるs
+
+### 11/24 filterを学んだ
 - `{id: 0, value: "たぴ０", del: false},`<br>
     チェックボックスの項目が増えたからdel:ができたよ
     - チェックボックスはfalseおあtrueだよ

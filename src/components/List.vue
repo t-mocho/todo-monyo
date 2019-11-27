@@ -1,7 +1,7 @@
 <template>
   <div id="list">
-    <!-- v-bind:props名="メソッド名" -->
-    <li v-for="todo in todolist" :key="todo.id">
+    <!-- 一覧 -->
+    <li v-for="todo in todolistSearch" :key="todo.id">
       <input type="checkbox" v-model="todo.del"/>
       <label>{{todo.del}} : {{todo.id}} : {{todo.value}}</label>
     </li>
@@ -13,7 +13,7 @@
 export default {
   name: "List",
   // appから受け取り
-props: ["todolist"],
+props: ["todolist", "todolistSearch"],
 
 methods: {
   todoDel: function(){
