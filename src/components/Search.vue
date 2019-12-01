@@ -1,9 +1,10 @@
 <template>
   <div>
     <!-- v-model 入力文字の引数 -->
-    <input type="text" v-model="searchText" />
+    <input type="text" v-model="searchText" @input="searchNew"/>
     <!-- @click メソッド名 -->
-    <button @click="searchNew">検索</button>
+    <button @click="newBtn" value="検索">検索</button>
+    <button @click="resetBtn">リセット</button>
   </div>
 </template>
 
@@ -16,12 +17,18 @@ export default {
     };
   },
   methods: {
-    /**
-     * methods: addNew
-     * 要素をAdd→Appへ
-     */
-    searchNew: function() {
-      this.$emit("passSearch", this.searchText, this.searchText + '2'); // this.$emit('(関数名)', (引数))
+    // text.target.valueで変更されるとリアルタイムに渡してくれる
+    searchNew: function(changeText) {
+      this.$emit("passSearch", changeText.target.value);
+    },
+    // text.target.valueで変更されるとリアルタイムに渡してくれる
+    newBtn: function() {
+      this.$emit("passSearch", this.searchText);
+    },
+    // 検索値を空にするよ
+    resetBtn: function(){
+      this.searchText = ""
+      this.$emit("passReset", this.searchText);
     }
   }
 };
