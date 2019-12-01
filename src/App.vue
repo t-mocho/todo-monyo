@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <Search v-on:passSearch="appSearch"/>
+    <Search
+    v-on:passSearch="appSearch"
+    v-on:passReset="appReset"/>
     {{searchText}}
     <List
     :todolist="todolist"
@@ -63,10 +65,12 @@ export default {
         // todolistに上書き
         this.todolist = todoDel
       }, 
-      appSearch: function(text, text2) {
-        console.log(text)
-        console.log(text2)
+      appSearch: function(text) {
+        // passSearchから受け取った入力値をdata内のsearchTextにsetする
         this.searchText = text
+      },
+      appReset: function(r){
+        this.searchText = r
       }
     }
 }
