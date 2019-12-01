@@ -1,5 +1,32 @@
 # todo-monyo memo
 
+### 12/1 changeイベントとか
+- `:value="searchText" @change="searchNew"` @changeでリアルタイム変更（イメージ）
+    - 入力フォームなので（検索欄）`:value`で入力値をとってくる
+    - 関数側は以下のコードで<br>
+    e（引数）.target（おまじないてきな）.value（:valueにあたるs）でemitすると<br>
+    リアルタイムでemitしてくれるものになるよ
+    ```
+        searchNew: function(e) {
+      this.$emit("passSearch", e.target.value); // this.$emit('(関数名)', (引数))
+    }
+    ```
+- `watch: `は引数を監視してくれるもの（メソッドみたいな書き方）
+    - oldtext（引数）, newtext（変更後）で<br>
+    emitするときはnewtextをわたしてあげるよ
+    ```
+    watch: {
+    searchText: function(oldtext, newtext){
+      this.$emit("text-change", newtext)
+    }
+    ```
+- ぼたんにはまったとこ
+    `<button @click="searchNew" value="検索">検索</button>` inputとbuttonと同じメソッド指定してた
+    - valueというのはbuttonにもinputにも存在していたので<br>
+    `changeText.target.value` でemitするとtarget.valueが空になってしまうよ<br>
+    なのでボタン用のメソッドといんぷっと用のメソッドは分けて作るのが○
+
+
 ### 11/27 searchで上書きしない方法
 - filterの結果をtodolistに上書きしてたので変更
     - `computed` を使うと値が更新されたときだけ動くよ
@@ -11,7 +38,7 @@
     - Search側の処理でtodolist呼び出し→<br>
     ifで文字が入力された場合のみ検索するように設定
 - `emit`が２つ記載された場合、後から呼ばれたほうがemit優先される
-    - `emit`でhoge,hogeで渡す場合は第一引数、第二引数になるs
+    - `emit`でhoge,hogeで渡す場合は第一引数、第二引数になる
 
 ### 11/24 filterを学んだ
 - `{id: 0, value: "たぴ０", del: false},`<br>
