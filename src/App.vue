@@ -1,9 +1,9 @@
 <template>
   <div id="app">
+        <p>search:{{searchText}}</p>
     <Search
     v-on:passSearch="appSearch"
     v-on:passReset="appReset"/>
-    {{searchText}}
     <List
     :todolist="todolist"
     :todolistSearch="todolistSearch"
@@ -16,6 +16,12 @@
 import Add from "./components/Add";
 import List from "./components/List";
 import Search from "./components/Search";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap-vue/dist/bootstrap-vue.css";
+import Vue from 'vue'
+import BootstrapVue from 'bootstrap-vue'
+
+Vue.use(BootstrapVue)
 
 // コンポーネント
 export default {
@@ -29,14 +35,18 @@ export default {
   // todoリスト
   data() {
     return {
+      // リスト一覧
         todolist: [
-          {id: 0, value: "たぴ０", del: false},
-          {id: 1, value: "たぴ１", del: true},
-          {id: 2, value: "たぴ２", del: false},
-          ],
-          searchText: ''
-    }
-  },
+          {id: 0, value: "タピオカ", del: false},
+          {id: 1, value: "ごはん", del: false},
+          {id: 2, value: "うに", del: false}],
+          
+          // nextId++
+          nextId: 3,
+          // searchTextに空文字
+          searchText: '',
+      }
+    },
 
    computed:{
      todolistSearch: function(){
@@ -46,15 +56,13 @@ export default {
         }
         return this.todolist
      }
-   }, 
+   },
     
     methods: {
       // タスク追加処理
       appAdd: function(addText) {
-        // keysで配列オブジェクトがなんこあるかわかるよ
-        var v = Object.keys( this.todolist );
         // v.lengthでidの数見て引数の入力値をpushする
-        const add = {id: v.length, value: addText, del: false}
+        const add = {id: this.nextId++, value: addText, del: false}
         this.todolist.push(add);
         },
       
@@ -84,7 +92,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: chocolate;
-  margin-top: 60px;
+  margin-top: 0px;
   background-color: antiquewhite;
 }
 </style>

@@ -1,5 +1,11 @@
 # todo-monyo memo
 
+### 12/3 bootstrap導入
+- いまいちぴんときてないけどbootstrap導入したよ
+    - もともとあるクラスのカスタマイズどうやるかしらべる
+    - ぼたんまわりさわる
+- 装飾まわりもにょもにょした
+
 ### 12/1 changeイベントとか
 - `:value="searchText" @change="searchNew"` @changeでリアルタイム変更（イメージ）
     - 入力フォームなので（検索欄）`:value`で入力値をとってくる
