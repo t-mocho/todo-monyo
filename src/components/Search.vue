@@ -3,11 +3,10 @@
     <!-- v-model 入力文字の引数 -->
     <input type="text" v-model="searchText" @input="searchNew" />
     <!-- @click メソッド名 -->
-    <button variant="primary" @click="newBtn" value="検索">検索</button>
-    <button @click="resetBtn">リセット</button>
-    <b-button variant="danger">Button</b-button>
-    <b-button variant="success">Button</b-button>
-    <b-button variant="outline-primary">Button</b-button>
+    <p>
+      <b-button variant="primary" size="sm" @click="newBtn" value="検索">検索</b-button>
+      <b-button variant="danger" size="sm" @click="resetBtn">リセット</b-button>
+      </p>
   </div>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- v-model 入力文字の引数 -->
-    <input type="text" v-model="addText" />
+    <b-form-input type="text" v-model="addText"></b-form-input>
     <!-- @click メソッド名 -->
     <button @click="addNew">追加</button>
   </div>
