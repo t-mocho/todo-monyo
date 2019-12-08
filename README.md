@@ -1,110 +1,130 @@
 # todo-monyo memo
 
-### 12/3 bootstrap導入
-- いまいちぴんときてないけどbootstrap導入したよ
-    - もともとあるクラスのカスタマイズどうやるかしらべる
-    - ぼたんまわりさわる
+### 12/5~8 css 系をいじる
+
+- 通常の css はなんとなくりかい
+  - 参考：https://saruwakakun.com/
+- ふわっとなアニメーション導入
+  - vue.js にも元々あった：https://jp.vuejs.org/v2/guide/transitions.html
+- scss と css とレスポンシブ理解
+
+### 12/3 bootstrap 導入
+
+- いまいちぴんときてないけど bootstrap 導入したよ
+  - もともとあるクラスのカスタマイズどうやるかしらべる
+  - ぼたんまわりさわる
 - 装飾まわりもにょもにょした
 
-### 12/1 changeイベントとか
-- `:value="searchText" @change="searchNew"` @changeでリアルタイム変更（イメージ）
-    - 入力フォームなので（検索欄）`:value`で入力値をとってくる
-    - 関数側は以下のコードで<br>
-    e（引数）.target（おまじないてきな）.value（:valueにあたるs）でemitすると<br>
-    リアルタイムでemitしてくれるものになるよ
-    ```
-        searchNew: function(e) {
-      this.$emit("passSearch", e.target.value); // this.$emit('(関数名)', (引数))
-    }
-    ```
-- `watch: `は引数を監視してくれるもの（メソッドみたいな書き方）
-    - oldtext（引数）, newtext（変更後）で<br>
-    emitするときはnewtextをわたしてあげるよ
-    ```
-    watch: {
-    searchText: function(oldtext, newtext){
-      this.$emit("text-change", newtext)
-    }
-    ```
+### 12/1 change イベントとか
+
+- `:value="searchText" @change="searchNew"` @change でリアルタイム変更（イメージ）
+  - 入力フォームなので（検索欄）`:value`で入力値をとってくる
+  - 関数側は以下のコードで<br>
+    e（引数）.target（おまじないてきな）.value（:value にあたる s）で emit すると<br>
+    リアルタイムで emit してくれるものになるよ
+  ```
+      searchNew: function(e) {
+    this.$emit("passSearch", e.target.value); // this.$emit('(関数名)', (引数))
+  }
+  ```
+- `watch:`は引数を監視してくれるもの（メソッドみたいな書き方）
+  - oldtext（引数）, newtext（変更後）で<br>
+    emit するときは newtext をわたしてあげるよ
+  ```
+  watch: {
+  searchText: function(oldtext, newtext){
+    this.$emit("text-change", newtext)
+  }
+  ```
 - ぼたんにはまったとこ
-    `<button @click="searchNew" value="検索">検索</button>` inputとbuttonと同じメソッド指定してた
-    - valueというのはbuttonにもinputにも存在していたので<br>
-    `changeText.target.value` でemitするとtarget.valueが空になってしまうよ<br>
-    なのでボタン用のメソッドといんぷっと用のメソッドは分けて作るのが○
+  `<button @click="searchNew" value="検索">検索</button>` input と button と同じメソッド指定してた
+  - value というのは button にも input にも存在していたので<br>
+    `changeText.target.value` で emit すると target.value が空になってしまうよ<br>
+    なのでボタン用のメソッドといんぷっと用のメソッドは分けて作るのが ○
 
+### 11/27 search で上書きしない方法
 
-### 11/27 searchで上書きしない方法
-- filterの結果をtodolistに上書きしてたので変更
-    - `computed` を使うと値が更新されたときだけ動くよ
-        - 引数はつかえない
-        - 使う際はdata()に宣言するとか工夫が必要
-        - data内はjavaでいうとこの`private Hoge hoge;`みたいな宣言場所
-    - `methods`は再描画が起きると常に実行するよ
-- Listのv-forに記載するものはSearch側のtodolistでOK
-    - Search側の処理でtodolist呼び出し→<br>
-    ifで文字が入力された場合のみ検索するように設定
-- `emit`が２つ記載された場合、後から呼ばれたほうがemit優先される
-    - `emit`でhoge,hogeで渡す場合は第一引数、第二引数になる
+- filter の結果を todolist に上書きしてたので変更
+  - `computed` を使うと値が更新されたときだけ動くよ
+    - 引数はつかえない
+    - 使う際は data()に宣言するとか工夫が必要
+    - data 内は java でいうとこの`private Hoge hoge;`みたいな宣言場所
+  - `methods`は再描画が起きると常に実行するよ
+- List の v-for に記載するものは Search 側の todolist で OK
+  - Search 側の処理で todolist 呼び出し →<br>
+    if で文字が入力された場合のみ検索するように設定
+- `emit`が２つ記載された場合、後から呼ばれたほうが emit 優先される
+  - `emit`で hoge,hoge で渡す場合は第一引数、第二引数になる
 
-### 11/24 filterを学んだ
+### 11/24 filter を学んだ
+
 - `{id: 0, value: "たぴ０", del: false},`<br>
-    チェックボックスの項目が増えたからdel:ができたよ
-    - チェックボックスはfalseおあtrueだよ
+  チェックボックスの項目が増えたから del:ができたよ
+
+  - チェックボックスは false おあ true だよ
 
 - `filter(条件);` まなんだ<br>
-    参考：https://www.w3schools.com/jsref/jsref_filter.asp
-- `this.$emit('(関数名)'` emitは引数なしでも可
+  参考：https://www.w3schools.com/jsref/jsref_filter.asp
+- `this.$emit('(関数名)'` emit は引数なしでも可
 
-### 11/23 lengthりかいりかい
-- length使ってできたよ！！
-    ```
-    appAdd: function(addText) {
-        var v = Object.keys( this.todolist );
-        const add = {id: v.length, value: addText}
-        this.todolist.push(add);
-    }
-    ```
-    `<label>{{todo.id}} : {{todo.value}}</label>`
+### 11/23 length りかいりかい
 
-- lengthは配列[]の要素を数えてくれるよ
-    - わしの課題は配列の中のオブジェクト{}の要素だったから違った<br>
+- length 使ってできたよ！！
+
+  ```
+  appAdd: function(addText) {
+      var v = Object.keys( this.todolist );
+      const add = {id: v.length, value: addText}
+      this.todolist.push(add);
+  }
+  ```
+
+  `<label>{{todo.id}} : {{todo.value}}</label>`
+
+- length は配列[]の要素を数えてくれるよ
+  - わしの課題は配列の中のオブジェクト{}の要素だったから違った<br>
     参考：https://www.sejuku.net/blog/22120#
 
 ### 11/21 エラーがきえた
+
 - 以下コードでエラーをはかなくなったけど、あしたみよう
-    ```
-        var i = 0;
-        let plus = i.length;
-        const add = {id: plus, value: addText}
-    ```
+  ```
+      var i = 0;
+      let plus = i.length;
+      const add = {id: plus, value: addText}
+  ```
 
-### 11/19 idをプラスする←間違えてた
-- `this.id++`用のmethod作ってもダメだったorz
-- 18日分の解釈間違えていたyo
-  - `:key="todo.idPlus"`この:keyに入るのはあくまで`id:`の部分で<br>
-  現状だと`:key="todo.0"`（値のみ）になっているのでidを指定しなきゃいけない
-  - `:key="todo.id"`は固定でidの中身が0,1,2,3になるよう進めていく
+### 11/19 id をプラスする ← 間違えてた
 
-### 11/18 idをプラスする
-- id:0 から1,2,3と++していく
-  - `:key="todo.idPlus"`のkey変更
-  - `var idPlus = this.id++`でidをidPlusにしたらいけた（for文いらないんだね）
-- constに追加リスト作ってたけどvarでid++した変数をconstのs処理に突っ込んでもいけることを知った
+- `this.id++`用の method 作ってもダメだった orz
+- 18 日分の解釈間違えていた yo
+  - `:key="todo.idPlus"`この:key に入るのはあくまで`id:`の部分で<br>
+    現状だと`:key="todo.0"`（値のみ）になっているので id を指定しなきゃいけない
+  - `:key="todo.id"`は固定で id の中身が 0,1,2,3 になるよう進めていく
+
+### 11/18 id をプラスする
+
+- id:0 から 1,2,3 と++していく
+  - `:key="todo.idPlus"`の key 変更
+  - `var idPlus = this.id++`で id を idPlus にしたらいけた（for 文いらないんだね）
+- const に追加リスト作ってたけど var で id++した変数を const の s 処理に突っ込んでもいけることを知った
 
 ### 11/17 リストに追加
+
 - 値の話
   - let:同じメソッド内のみで
   - var:全部で変更できる値
   - const:固定値
 - リストに追加した
-  - emitで渡してv-onで受け取ってさらにv-bindでもらう
+  - emit で渡して v-on で受け取ってさらに v-bind でもらう
 - 次の課題
-  - 「id:4」固定になってるのをforするよ
-  - searchで絞り込みするよ
+  - 「id:4」固定になってるのを for するよ
+  - search で絞り込みするよ
 
-### 11/16 macbookに設定追加してるよ
-- macbookに環境構築中
-- sorcetreeとgitとnode.jsと拡張機能とか諸々完了
+### 11/16 macbook に設定追加してるよ
+
+- macbook に環境構築中
+- sorcetree と git と node.js と拡張機能とか諸々完了
 
 ### 11/13 component オオオ
 
