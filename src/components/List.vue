@@ -1,36 +1,31 @@
 <template>
-  <div>
-    <table id="center">
-      <!-- テーブルヘッダー -->
-      <thead>
-        <tr>
-          <th>delete</th>
-          <th>task</th>
-          <th>end</th>
-        </tr>
-      </thead>
-      <tbody id="table">
-        <tr v-for="todo in todolistSearch" :key="todo.id">
-          <!-- 削除用checkbox -->
-          <th>
-            <input type="checkbox" v-model="todo.del" />
-          </th>
-          <!-- 完了icon切替 -->
-          <span id="icon" v-if="todo.end===true">
-            <img src="../assets/img/icon2.png" width="80px" height="80px" />
-          </span>
-          <img id="icon" v-else src="../assets/img/icon1.png" width="80px" height="80px" />
-          <!-- tasklist -->
-          <th class="balloon3-left">
-            <span :class="{ todoEnd: todo.end }">{{ todo.value }}</span>
-          </th>
-          <th>
-            <b-button variant="info" size="sm" @click="todo.end=true">完了</b-button>
-          </th>
-        </tr>
+  <div id="list">
+    <table>
+      <tbody>
+        <transition-group name="”fade”">
+          <tr class="in" v-for="todo in todolistSearch" :key="todo.id">
+            <!-- 削除用checkbox -->
+            <th>
+              <input type="checkbox" name="check1" v-model="todo.del" />
+            </th>
+            <!-- 完了icon切替 -->
+            <span class="in" v-if="todo.end===true">
+              <img src="../assets/img/icon2.png" width="80px" height="80px" />
+            </span>
+            <img v-else src="../assets/img/icon1.png" width="80px" height="80px" />
+            <!-- tasklist -->
+            <th class="task">
+              <span :class="{ todoEnd: todo.end }">{{ todo.value }}</span>
+            </th>
+            <th>
+              <b-button variant="info" size="sm" @click="todo.end=true">完了</b-button>
+            </th>
+          </tr>
+        </transition-group>
       </tbody>
     </table>
-    <b-button variant="warning" size="sm" @click="todoDel">削除</b-button>
+    <!-- ここのv-bind:classが間違っている気がした -->
+    <b-button variant="warning" size="sm" @click="todoDel" v-bind:class="{out:todoDel}">削除</b-button>
   </div>
 </template>
 
@@ -50,6 +45,20 @@ export default {
 </script>
 
 <style>
+@keyframes fadeOut {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.out {
+  animation: fadeOut 2s;
+}
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -61,8 +70,11 @@ export default {
     opacity: 1;
   }
 }
-#icon {
+.in {
   animation: fadeIn 0.5s;
+}
+#list {
+  line-height: 4;
 }
 thead {
   background: rgb(255, 178, 249);
@@ -71,6 +83,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
   margin: auto;
+  width: 50%;
 }
 table tr {
   border-bottom: solid 1px #c4c4c4;
@@ -82,7 +95,7 @@ table th,
 table td {
   text-align: center;
 }
-.balloon3-left {
+.task {
   position: relative;
   display: inline-block;
   margin: 1.5em 0 1.5em 15px;
@@ -99,7 +112,7 @@ table td {
   box-sizing: border-box;
 }
 
-.balloon3-left:before {
+.task:before {
   content: "";
   position: absolute;
   top: 50%;
@@ -113,5 +126,9 @@ table td {
 .todoEnd {
   text-decoration: line-through;
   opacity: 80%;
+}
+
+.demo1 .label_list:nth-of-type(1) label input[type="checkbox"] + span::before {
+  border-color: #00acc1;
 }
 </style>

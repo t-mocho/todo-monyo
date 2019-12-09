@@ -6,7 +6,7 @@
     <p>
       <b-button variant="primary" size="sm" @click="newBtn" value="検索">検索</b-button>
       <b-button variant="danger" size="sm" @click="resetBtn">リセット</b-button>
-      </p>
+    </p>
   </div>
 </template>
 
@@ -40,7 +40,4 @@ export default {
 </script>
 
 <style>
-#search {
-  background-color: rgb(231, 230, 147);
-}
 </style>

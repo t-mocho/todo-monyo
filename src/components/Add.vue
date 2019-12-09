@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div id="add">
     <!-- v-model 入力文字の引数 -->
-    <b-form-input type="text" v-model="addText"></b-form-input>
+    <input type="text" v-model="addText" />
     <!-- @click メソッド名 -->
     <button @click="addNew">追加</button>
   </div>
@@ -27,3 +27,8 @@ export default {
   }
 };
 </script>
+<style>
+#add {
+  padding-bottom: 30px;
+}
+</style>

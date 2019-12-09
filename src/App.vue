@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <p>search:{{searchText}}</p>
+    <p>searchtext:{{searchText}}</p>
     <Search v-on:passSearch="appSearch" v-on:passReset="appReset" />
     <List :todolist="todolist" :todolistSearch="todolistSearch" v-on:passCheck="appDel" />
     <Add v-on:passAdd="appAdd" />
@@ -89,5 +89,8 @@ export default {
   color: chocolate;
   margin-top: 0px;
   background-color: antiquewhite;
+  border-radius: 0 0 15px 15px;
+  border: solid #202020 2px;
+  border-top: solid 0;
 }
 </style>
