@@ -2,42 +2,50 @@
   <div id="list">
     <table>
       <tbody>
-        <transition-group name="”fade”">
-          <tr class="in" v-for="todo in todolistSearch" :key="todo.id">
-            <!-- 削除用checkbox -->
+        <!-- transition-groupで複数リストにアニメーションをつける -->
+        <transition-group name="anime" tag="th">
+          <!-- todolistをforして表示 -->
+          <tr v-for="todo in todolistSearch" :key="todo.id" class="animelist">
             <th>
+              <!-- 削除用checkbox -->
               <input type="checkbox" name="check1" v-model="todo.del" />
             </th>
-            <!-- 完了icon切替 -->
+            <!-- 完了押下でiconimg切替 -->
             <span class="in" v-if="todo.end===true">
-              <img src="../assets/img/icon2.png" width="80px" height="80px" />
+              <img class="icon" src="../assets/img/ok.png" />
             </span>
-            <img v-else src="../assets/img/icon1.png" width="80px" height="80px" />
-            <!-- tasklist -->
-            <th class="task">
+            <img class="icon" v-else src="../assets/img/mada.png" />
+            <!-- showでアニメーション付与 -->
+            <th class="task" v-if="show">
+              <!-- :classで完了押下で取消線 -->
               <span :class="{ todoEnd: todo.end }">{{ todo.value }}</span>
             </th>
             <th>
+              <!-- b-button bootstrap-->
               <b-button variant="info" size="sm" @click="todo.end=true">完了</b-button>
             </th>
           </tr>
         </transition-group>
       </tbody>
     </table>
-    <!-- ここのv-bind:classが間違っている気がした -->
-    <b-button variant="warning" size="sm" @click="todoDel" v-bind:class="{out:todoDel}">削除</b-button>
+    <b-button variant="warning" size="sm" @click="todoDel">削除</b-button>
   </div>
 </template>
 
 <script>
 export default {
   name: "List",
-  // appから受け取り
+  // Appからtodolist,todolistsearchを受け取る
   props: ["todolist", "todolistSearch"],
 
+  data: function() {
+    return {
+      show: true
+    };
+  },
   methods: {
     todoDel: function() {
-      // 削除パス
+      // todoDelをAppに渡す
       this.$emit("passCheck"); // this.$emit('(関数名)'
     }
   }
@@ -45,20 +53,26 @@ export default {
 </script>
 
 <style>
-@keyframes fadeOut {
-  0% {
-    opacity: 0;
-  }
-  30% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+/** img icon */
+.icon {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
 }
-.out {
-  animation: fadeOut 2s;
+.animelist {
+  transition: all 1s;
 }
+/** todo fade in */
+.anime-enter {
+  opacity: 0;
+  transform: translateX(20px);
+}
+/** todo fade out */
+.anime-leave-to {
+  opacity: 0;
+  transform: translateX(20px);
+}
+/** img切替 */
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -73,28 +87,31 @@ export default {
 .in {
   animation: fadeIn 0.5s;
 }
+/** 行間調整 */
 #list {
-  line-height: 4;
+  line-height: 3;
 }
-thead {
-  background: rgb(255, 178, 249);
-}
+/** table */
 table {
   border-collapse: collapse;
   border-spacing: 0;
   margin: auto;
   width: 50%;
 }
+/** table tr */
 table tr {
   border-bottom: solid 1px #c4c4c4;
 }
+/** hover時 */
 table tr:hover {
   background-color: #d4f0fd;
 }
+/** th,td文字中央 */
 table th,
 table td {
   text-align: center;
 }
+/** 吹き出し風に */
 .task {
   position: relative;
   display: inline-block;
@@ -111,7 +128,6 @@ table td {
   border-radius: 10px; /* 角丸指定*/
   box-sizing: border-box;
 }
-
 .task:before {
   content: "";
   position: absolute;
@@ -122,13 +138,9 @@ table td {
   border-right: 50px solid #ffcc75;
   z-index: 0;
 }
-
+/** 完了ボタンで取消線 */
 .todoEnd {
   text-decoration: line-through;
   opacity: 80%;
-}
-
-.demo1 .label_list:nth-of-type(1) label input[type="checkbox"] + span::before {
-  border-color: #00acc1;
 }
 </style>
