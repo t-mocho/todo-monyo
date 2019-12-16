@@ -3,7 +3,7 @@
     <!-- v-model 入力文字の引数 -->
     <input type="text" v-model="addText" />
     <!-- @click メソッド名 -->
-    <button @click="addNew">追加</button>
+    <b-button type="button" size="sm" class="btn btn-success" @click="addNew">追加</b-button>
   </div>
 </template>
 
